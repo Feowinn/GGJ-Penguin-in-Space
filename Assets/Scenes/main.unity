@@ -926,5 +926,65 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8196255319705891999, guid: 45455f2da3a6a2847a68a57f39e1f886,
         type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[0]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 91c1127e7f02f7d41942ea9317596a5a,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[1]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: dd01596bd567e5442971295d38ad30a8,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[2]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 54e02b684f6e88a4b81bfb785270bd43,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[3]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: fa06e206f3990cb409a65303db38aecd,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[4]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: fda584ed1f44d5c48b1543191a1be031,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[5]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 18cd52357e8d4d84a8c327c4256e2a49,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[6]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 08847413746f363439ae7c33f1402093,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[7]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: cfe29308223c620449538d1d4e9cfc68,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[8]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 88e1e87eede86ce45bd507869af35e6c,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: collectibles.Array.data[9]
+      value: 
+      objectReference: {fileID: 7405438442110572738, guid: 4c4fe9f707b172845ac095d99a37ade5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf2938470ba30a48bc56719f4894a98, type: 3}

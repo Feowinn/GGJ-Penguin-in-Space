@@ -16,9 +16,10 @@ public class MeteorSpawnScript : MonoBehaviour
     public GameObject[] meteors = new GameObject[6];
     private List<GameObject> deactivated_meteors = new List<GameObject>();
 
-    public int max_number_collectibles = 5;
+    public int max_number_collectibles = 20;
     public float collectible_rotation_speed = 2.0f;
     public GameObject collectible;
+    public GameObject[] collectibles = new GameObject[10];
     private List<GameObject> deactivated_collectibles = new List<GameObject>();
 
     private System.Random random = new System.Random();
@@ -45,7 +46,7 @@ public class MeteorSpawnScript : MonoBehaviour
         }
         for (int i = 0; i <= max_number_collectibles; i++)
         {
-            GameObject collectible_ = Instantiate(collectible, spawnPoint0.transform.position, Quaternion.identity);
+            GameObject collectible_ = Instantiate(collectibles[random.Next(0, 9)], spawnPoint0.transform.position, Quaternion.identity);
             collectible_.SetActive(false);
             deactivated_collectibles.Add(collectible_);
         }
