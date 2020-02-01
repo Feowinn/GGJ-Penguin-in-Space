@@ -7,6 +7,7 @@ public class minigameLogic : MonoBehaviour
     public int gameParts = 5;
     public float puzzleTime = 20f;
     float puzzleTimeLeft;
+    public float slowdown = 2f;
 
     public GameLogic gameLogic;
     public GameObject outline;
@@ -30,6 +31,7 @@ public class minigameLogic : MonoBehaviour
     // Start is called before the first frame update
     public void StartMinigame(int number)
     {
+        Time.timeScale = 1 / slowdown;
         puzzleTimeLeft = puzzleTime;
         currentCorrectParts = 0;
         //reset part locations and enable dragHandler
@@ -52,6 +54,7 @@ public class minigameLogic : MonoBehaviour
         currentCorrectParts++;
         if (currentCorrectParts == parts_needed_for_repair)
         {
+            Time.timeScale = 1f;
             //TODO Game is won!
             gameLogic.GameCompleted();
             canvas.enabled = false;
@@ -62,9 +65,10 @@ public class minigameLogic : MonoBehaviour
     {
         if (canvas.enabled)
         {
-            puzzleTimeLeft -= Time.deltaTime;
+            puzzleTimeLeft -= Time.deltaTime * slowdown;
             if (puzzleTimeLeft <= 0f)
             {
+                Time.timeScale = 1f;
                 Debug.Log("Timeout!");
                 canvas.enabled = false;
             }
