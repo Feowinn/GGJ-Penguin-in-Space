@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float maxSpeed = 5f;
-
-
+    public ShipPart[] parts = new ShipPart[5];
+    bool[] broken = new bool[5] {false,false,false,false,false };
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +26,16 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         }
+    }
+    public void ShipPartIsDamaged(int shipNumber)
+    {
+        broken[shipNumber] = true;
+        parts[shipNumber].enabled = false;
+    }
+
+    public void ShipPartIsRepaired(int shipNumber)
+    {
+        broken[shipNumber] = false;
+        parts[shipNumber].enabled = true;
     }
 }
