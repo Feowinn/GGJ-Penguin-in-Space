@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     //public ShipPart dome, leftFront, leftBack, rightFront, right
     bool[] broken = new bool[5] {false,false,false,false,false };
 
+    public GameObject logic;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             meteorSpawnScript.AddDeactivatedCollectible(collision.gameObject);
             //TODO add method 
+            logic.GetComponent<GameLogic>().AddCollectible();
         }
 
     }
