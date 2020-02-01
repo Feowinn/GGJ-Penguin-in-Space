@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public MeteorSpawnScript meteorSpawnScript;
+    public GameObject left_boundary_point;
+    public GameObject right_boundary_point;
     public float maxSpeed = 5f;
 
     public ShipPart[] shipParts = new ShipPart[5];
     //public ShipPart dome, leftFront, leftBack, rightFront, right
     bool[] broken = new bool[5] {false,false,false,false,false };
+
+    public GameObject logic;
 
 
     // Start is called before the first frame update
@@ -23,7 +27,21 @@ public class PlayerController : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         GetComponent<Rigidbody>().velocity = new Vector3(move * maxSpeed, 0f, 0f);
+
+        if (this.transform.position.x < left_boundary_point.transform.position.x)
+        {
+            this.transform.position = new Vector3(left_boundary_point.transform.position.x,
+                                                    this.transform.position.y,
+                                                    this.transform.position.z);
+        }
+        else if (this.transform.position.x > right_boundary_point.transform.position.x)
+        {
+            this.transform.position = new Vector3(right_boundary_point.transform.position.x,
+                                                  this.transform.position.y,
+                                                  this.transform.position.z);
+        }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Boundary"))
@@ -58,6 +76,7 @@ public class PlayerController : MonoBehaviour
                     if (i == 0)
                     {
                         // TODO lose the game!
+                        Debug.Log("You lose!");
                     }
                 }
                 
@@ -68,6 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             meteorSpawnScript.AddDeactivatedCollectible(collision.gameObject);
             //TODO add method 
+            logic.GetComponent<GameLogic>().AddCollectible();
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DespawnScript : MonoBehaviour
 {
   
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Meteor"))
         {
