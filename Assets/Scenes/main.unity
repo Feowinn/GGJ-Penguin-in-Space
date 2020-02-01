@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &504818820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &665210464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -748,6 +748,21 @@ PrefabInstance:
       propertyPath: meteorSpawnScript
       value: 
       objectReference: {fileID: 968202733}
+    - target: {fileID: 7933832337991861965, guid: 79281b637e5b3774188b1a4127ba0905,
+        type: 3}
+      propertyPath: logic
+      value: 
+      objectReference: {fileID: 852427337}
+    - target: {fileID: 7933832337991861965, guid: 79281b637e5b3774188b1a4127ba0905,
+        type: 3}
+      propertyPath: left_boundary_point
+      value: 
+      objectReference: {fileID: 1917022173}
+    - target: {fileID: 7933832337991861965, guid: 79281b637e5b3774188b1a4127ba0905,
+        type: 3}
+      propertyPath: right_boundary_point
+      value: 
+      objectReference: {fileID: 1546270474}
     - target: {fileID: 7933832337991861974, guid: 79281b637e5b3774188b1a4127ba0905,
         type: 3}
       propertyPath: m_Name
@@ -755,6 +770,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79281b637e5b3774188b1a4127ba0905, type: 3}
+--- !u!1 &1546270474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 18713358493539449, guid: 1cf2938470ba30a48bc56719f4894a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 18713357547651202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1917022173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 18713358674626887, guid: 1cf2938470ba30a48bc56719f4894a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 18713357547651202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &18713357547651202
 PrefabInstance:
   m_ObjectHideFlags: 0
