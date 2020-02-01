@@ -11,10 +11,12 @@ public class MeteorSpawnScript : MonoBehaviour
     public GameObject dir_helper;
 
     public int max_number_meteors = 10;
+    public float meteor_rotation_speed = 10.0f;
     public GameObject meteor;
     private List<GameObject> deactivated_meteors = new List<GameObject>();
 
     public int max_number_collectibles = 5;
+    public float collectible_rotation_speed = 2.0f;
     public GameObject collectible;
     private List<GameObject> deactivated_collectibles = new List<GameObject>();
 
@@ -88,8 +90,11 @@ public class MeteorSpawnScript : MonoBehaviour
 
                 //create random position on spawn line and apply orthogonal speed in plane
                 meteor_.transform.position = GetRandomPosition(spawnPoint0.transform.position, spawnPoint1.transform.position);
+                meteor_.transform.rotation = Random.rotation;
                 Vector3 force_dir = dir_helper.transform.position - spawnPoint0.transform.position;
                 meteor_.GetComponent<Rigidbody>().velocity = 1.0f * force_dir;
+                Vector3 rot_dir = getRandomRotation();
+                meteor_.GetComponent<Rigidbody>().AddTorque(meteor_rotation_speed*rot_dir);
 
                 //reset timer
                 meteor_next_random_add_time = meteor_time_frame * (float)random.NextDouble();
@@ -113,13 +118,24 @@ public class MeteorSpawnScript : MonoBehaviour
 
                 //create random position on spawn line and apply orthogonal speed in plane
                 collectible_.transform.position = GetRandomPosition(spawnPoint0.transform.position, spawnPoint1.transform.position);
+                collectible_.transform.rotation = Random.rotation;
                 Vector3 force_dir = dir_helper.transform.position - spawnPoint0.transform.position;
                 collectible_.GetComponent<Rigidbody>().velocity = 1.0f * force_dir; //TODO add random factor to speed
+                Vector3 rot_dir = getRandomRotation();
+                collectible_.GetComponent<Rigidbody>().AddTorque(collectible_rotation_speed * rot_dir);
 
                 //reset timer
                 collectible_next_random_add_time = collectible_time_frame * (float)random.NextDouble();
                 collectible_timer = 0.0f;
             }
         }
+    }
+
+    private Vector3 getRandomRotation()
+    {
+        float x = (float)random.NextDouble() * 2 - 1;
+        float y = (float)random.NextDouble() * 2 - 1;
+        float z = (float)random.NextDouble() * 2 - 1;
+        return new Vector3(x,y,z);
     }
 }
