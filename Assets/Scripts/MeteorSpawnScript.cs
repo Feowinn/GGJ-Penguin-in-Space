@@ -13,6 +13,7 @@ public class MeteorSpawnScript : MonoBehaviour
     public int max_number_meteors = 10;
     public float meteor_rotation_speed = 10.0f;
     public GameObject meteor;
+    public GameObject[] meteors = new GameObject[6];
     private List<GameObject> deactivated_meteors = new List<GameObject>();
 
     public int max_number_collectibles = 5;
@@ -38,7 +39,7 @@ public class MeteorSpawnScript : MonoBehaviour
     {
         for (int i = 0; i <= max_number_meteors; i++)
         {
-            GameObject meteor_ = Instantiate(meteor, spawnPoint0.transform.position, Quaternion.identity);
+            GameObject meteor_ = Instantiate(meteors[random.Next(0,5)], spawnPoint0.transform.position, Quaternion.identity);
             meteor_.SetActive(false);
             deactivated_meteors.Add(meteor_);
         }
@@ -85,6 +86,7 @@ public class MeteorSpawnScript : MonoBehaviour
             {
                 //take first deactivated meteor activate it and remove it from the deactivated-list
                 GameObject meteor_ = deactivated_meteors[0];
+                //meteor_.Mesh = GameObject.FindGameObjectsWithTag("MeteorMesh");
                 meteor_.SetActive(true);
                 deactivated_meteors.RemoveAt(0);
 

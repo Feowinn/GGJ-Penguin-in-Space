@@ -19,20 +19,20 @@ public class GameLogic : MonoBehaviour
         if(parts_collected == parts_needed_for_repair)
         {
             //spawn new scene in our scene
-            SceneManager.LoadScene("PuzzleGame", LoadSceneMode.Additive);
+            //SceneManager.LoadScene("PuzzleGame", LoadSceneMode.Additive);
             parts_collected = 0;
         }
 
         if (puzzle_completed)
         {
-            SceneManager.UnloadSceneAsync("PuzzleGame");
+            //SceneManager.UnloadSceneAsync("PuzzleGame");
             puzzle_completed = false;
             //call method to repair ship
         }
 
         if (puzzle_failed)
         {
-            SceneManager.UnloadSceneAsync("PuzzleGame");
+            //SceneManager.UnloadSceneAsync("PuzzleGame");
             puzzle_failed = false;
         }
         

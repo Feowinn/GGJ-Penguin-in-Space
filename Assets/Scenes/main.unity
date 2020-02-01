@@ -871,6 +871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
         type: 3}
+      propertyPath: meteors.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
       propertyPath: time_frame
       value: 1.5
       objectReference: {fileID: 0}
@@ -884,6 +889,42 @@ PrefabInstance:
       propertyPath: collectible
       value: 
       objectReference: {fileID: 7405438442110572738, guid: 91c1127e7f02f7d41942ea9317596a5a,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[0]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: 06efed2e242bb424596908be54e92575,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[1]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: 38eeef13873bd12429fa4c490157ff2a,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[2]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: 4ed11005f39f8854b8535b57c60745ec,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[3]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: 325e86b4c270b3c4bbb69650797d84b5,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[4]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: e71b4f0a7c8846540a69429ad39fac2e,
+        type: 3}
+    - target: {fileID: 18713359026732533, guid: 1cf2938470ba30a48bc56719f4894a98,
+        type: 3}
+      propertyPath: meteors.Array.data[5]
+      value: 
+      objectReference: {fileID: 8196255319705891999, guid: 45455f2da3a6a2847a68a57f39e1f886,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf2938470ba30a48bc56719f4894a98, type: 3}
