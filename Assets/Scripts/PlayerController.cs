@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public MeteorSpawnScript meteorSpawnScript;
+    public GameObject left_boundary_point;
+    public GameObject right_boundary_point;
     public float maxSpeed = 5f;
 
     public ShipPart[] shipParts = new ShipPart[5];
@@ -25,7 +27,21 @@ public class PlayerController : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         GetComponent<Rigidbody>().velocity = new Vector3(move * maxSpeed, 0f, 0f);
+
+        if (this.transform.position.x < left_boundary_point.transform.position.x)
+        {
+            this.transform.position = new Vector3(left_boundary_point.transform.position.x,
+                                                    this.transform.position.y,
+                                                    this.transform.position.z);
+        }
+        else if (this.transform.position.x > right_boundary_point.transform.position.x)
+        {
+            this.transform.position = new Vector3(right_boundary_point.transform.position.x,
+                                                  this.transform.position.y,
+                                                  this.transform.position.z);
+        }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Boundary"))
