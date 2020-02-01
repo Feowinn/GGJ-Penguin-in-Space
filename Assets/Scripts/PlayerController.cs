@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
                     if (i == 0)
                     {
                         // TODO lose the game!
+                        Debug.Log("You lose!");
                     }
                 }
                 

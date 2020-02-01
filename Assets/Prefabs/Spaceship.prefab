@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920db7af4f71ce043986b4aedf369827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meteorSpawnScript: {fileID: 0}
   maxSpeed: 5
   shipParts:
   - {fileID: 7933832337082086855}
