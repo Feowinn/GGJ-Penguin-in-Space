@@ -10,23 +10,41 @@ public class MeteorSpawnScript : MonoBehaviour
     public GameObject spawnPoint1;
     public GameObject dir_helper;
 
+    public int max_number_meteors = 10;
     public GameObject meteor;
     private List<GameObject> deactivated_meteors = new List<GameObject>();
+
+    public int max_number_collectibles = 5;
+    public GameObject collectible;
+    private List<GameObject> deactivated_collectibles = new List<GameObject>();
 
     private System.Random random = new System.Random();
    
     //timer info for meteorite spwan delays and logic
-    private float timer = 0.0f;
-    private float time_frame = 0.0f;
-    private float spawn_delay = 2.0f;
+    private float meteor_timer = 0.0f;
+    private float collectible_timer = 0.0f;
+
+    private float meteor_next_random_add_time = 0.0f;
+    public float meteor_time_frame = 1.0f;
+    public float meteor_spawn_delay = 0.3f;
+
+    private float collectible_next_random_add_time = 0.0f;
+    public float collectible_time_frame = 1.0f;
+    public float collectible_spawn_delay = 0.3f;
 
     void Start()
     {
-        for (int i = 0; i <= 10; i++)
+        for (int i = 0; i <= max_number_meteors; i++)
         {
             GameObject meteor_ = Instantiate(meteor, spawnPoint0.transform.position, Quaternion.identity);
             meteor_.SetActive(false);
             deactivated_meteors.Add(meteor_);
+        }
+        for (int i = 0; i <= max_number_collectibles; i++)
+        {
+            GameObject collectible_ = Instantiate(collectible, spawnPoint0.transform.position, Quaternion.identity);
+            collectible_.SetActive(false);
+            deactivated_collectibles.Add(collectible_);
         }
     }
 
@@ -34,34 +52,74 @@ public class MeteorSpawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= spawn_delay)
-        {
-            //spawn some meteorites
-            if (deactivated_meteors.Count > 0)
-            {
-                GameObject meteor_ = deactivated_meteors[0];
-                meteor_.SetActive(true);
-                deactivated_meteors.RemoveAt(0);
-                meteor_.transform.position = GetRandomPosition(spawnPoint0.transform.position, spawnPoint1.transform.position);
-                Vector3 force_dir = dir_helper.transform.position - spawnPoint0.transform.position;
-                meteor_.GetComponent<Rigidbody>().velocity = 1.0f*force_dir;
-                //reset timer
-                timer = 0.0f;
-            }
-        }
+        spawnMeteors();
+        spawnCollectibles();
     }
 
     private Vector3 GetRandomPosition(Vector3 start, Vector3 end)
     {
-        int randomNumber = random.Next(0, 100);
-        return start + (end - start) * (float)randomNumber/100.0f;
+        return start + (end - start) * (float)random.NextDouble();
     }
 
     public void AddDeactivatedMeteor(GameObject meteor_)
     {
         meteor_.SetActive(false);
         this.deactivated_meteors.Add(meteor_);
+    }
+
+    public void AddDeactivatedCollectible(GameObject collectible_)
+    {
+        collectible_.SetActive(false);
+        this.deactivated_collectibles.Add(collectible_);
+    }
+
+    private void spawnMeteors()
+    {
+        meteor_timer += Time.deltaTime;
+        if (meteor_timer >= meteor_spawn_delay + meteor_next_random_add_time)
+        {
+            //spawn some meteorites
+            if (deactivated_meteors.Count > 0)
+            {
+                //take first deactivated meteor activate it and remove it from the deactivated-list
+                GameObject meteor_ = deactivated_meteors[0];
+                meteor_.SetActive(true);
+                deactivated_meteors.RemoveAt(0);
+
+                //create random position on spawn line and apply orthogonal speed in plane
+                meteor_.transform.position = GetRandomPosition(spawnPoint0.transform.position, spawnPoint1.transform.position);
+                Vector3 force_dir = dir_helper.transform.position - spawnPoint0.transform.position;
+                meteor_.GetComponent<Rigidbody>().velocity = 1.0f * force_dir;
+
+                //reset timer
+                meteor_next_random_add_time = meteor_time_frame * (float)random.NextDouble();
+                meteor_timer = 0.0f;
+            }
+        }
+    }
+
+    private void spawnCollectibles()
+    {
+        collectible_timer += Time.deltaTime;
+        if (collectible_timer >= collectible_spawn_delay + collectible_next_random_add_time)
+        {
+            //spawn some meteorites
+            if (deactivated_collectibles.Count > 0)
+            {
+                //take first deactivated meteor activate it and remove it from the deactivated-list
+                GameObject collectible_ = deactivated_collectibles[0];
+                collectible_.SetActive(true);
+                deactivated_collectibles.RemoveAt(0);
+
+                //create random position on spawn line and apply orthogonal speed in plane
+                collectible_.transform.position = GetRandomPosition(spawnPoint0.transform.position, spawnPoint1.transform.position);
+                Vector3 force_dir = dir_helper.transform.position - spawnPoint0.transform.position;
+                collectible_.GetComponent<Rigidbody>().velocity = 1.0f * force_dir; //TODO add random factor to speed
+
+                //reset timer
+                collectible_next_random_add_time = collectible_time_frame * (float)random.NextDouble();
+                collectible_timer = 0.0f;
+            }
+        }
     }
 }

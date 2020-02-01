@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boundary
   - Meteor
+  - despawn
+  - Collectible
   layers:
   - Default
   - TransparentFX

@@ -12,5 +12,11 @@ public class DespawnScript : MonoBehaviour
             GameObject meteorPlane = this.transform.parent.gameObject;
             meteorPlane.GetComponent<MeteorSpawnScript>().AddDeactivatedMeteor(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            GameObject meteorPlane = this.transform.parent.gameObject;
+            meteorPlane.GetComponent<MeteorSpawnScript>().AddDeactivatedCollectible(collision.gameObject);
+        }
     }
 }
