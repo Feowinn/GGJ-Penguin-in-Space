@@ -12,11 +12,11 @@ public class WorldScript : MonoBehaviour
     private Vector3 border_offset_rot = new Vector3(0f, 0f, -10f);
 
     private int num_tiles = 2;
-    public GameObject[] Tilelist = new GameObject[1];
+    public GameObject[] Tilelist = new GameObject[11];
     public List<GameObject> active_tiles = new List<GameObject>();
 
     private int num_border_tiles = 2;
-    public GameObject[] BorderTilelist = new GameObject[1];
+    public GameObject[] BorderTilelist = new GameObject[11];
     public List<GameObject> active_border_tiles = new List<GameObject>();
 
     private System.Random random = new System.Random();
@@ -26,17 +26,23 @@ public class WorldScript : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            //spawn enough tiles to 
-            GameObject new_tile = Instantiate(Tilelist[random.Next(0, num_tiles - 1)]);
-            active_tiles.Add(new_tile);
-            new_tile.transform.position = position;
-            new_tile.transform.Rotate(start_rotation+(float)i*default_rot);
+            if (num_tiles > 0)
+            {
+                //spawn enough tiles to 
+                GameObject new_tile = Instantiate(Tilelist[random.Next(num_tiles)]);
+                active_tiles.Add(new_tile);
+                new_tile.transform.position = position;
+                new_tile.transform.Rotate(start_rotation + (float)i * default_rot);
+            }
 
-            //spawn enough tiles to 
-            GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(0, num_border_tiles - 1)]);
-            active_border_tiles.Add(new_border_tile);
-            new_border_tile.transform.position = position;
-            new_border_tile.transform.Rotate(border_offset_rot + start_rotation + (float)i * default_rot);
+            if (num_border_tiles > 0)
+            {
+                //spawn enough tiles to 
+                GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(num_border_tiles)]);
+                active_border_tiles.Add(new_border_tile);
+                new_border_tile.transform.position = position;
+                new_border_tile.transform.Rotate(border_offset_rot + start_rotation + (float)i * default_rot);
+            }
         }
     }
 
@@ -51,25 +57,31 @@ public class WorldScript : MonoBehaviour
         
         if (newspawncondition)
         {
-            GameObject old_tile = active_tiles[0];
-            active_tiles.RemoveAt(0);
-            Destroy(old_tile);
+            if (num_tiles > 0)
+            {
+                GameObject old_tile = active_tiles[0];
+                active_tiles.RemoveAt(0);
+                Destroy(old_tile);
 
-            GameObject new_tile = Instantiate(Tilelist[random.Next(0, num_tiles-1)]);
-            active_tiles.Add(new_tile);
-            new_tile.transform.position = position;
-            new_tile.transform.eulerAngles = old_tile.transform.eulerAngles;
-            new_tile.transform.Rotate( 5 * default_rot);
+                GameObject new_tile = Instantiate(Tilelist[random.Next(num_tiles)]);
+                active_tiles.Add(new_tile);
+                new_tile.transform.position = position;
+                new_tile.transform.eulerAngles = old_tile.transform.eulerAngles;
+                new_tile.transform.Rotate(5 * default_rot);
+            }
 
-            GameObject old_border_tile = active_border_tiles[0];
-            active_border_tiles.RemoveAt(0);
-            Destroy(old_border_tile);
+            if (num_border_tiles > 0)
+            {
+                GameObject old_border_tile = active_border_tiles[0];
+                active_border_tiles.RemoveAt(0);
+                Destroy(old_border_tile);
 
-            GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(0, num_border_tiles - 1)]);
-            active_border_tiles.Add(new_border_tile);
-            new_border_tile.transform.position = position;
-            new_border_tile.transform.eulerAngles = old_border_tile.transform.eulerAngles;
-            new_border_tile.transform.Rotate(5 * default_rot);
+                GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(num_border_tiles)]);
+                active_border_tiles.Add(new_border_tile);
+                new_border_tile.transform.position = position;
+                new_border_tile.transform.eulerAngles = old_border_tile.transform.eulerAngles;
+                new_border_tile.transform.Rotate(5 * default_rot);
+            }
         }
 
         rotateAllTiles();
