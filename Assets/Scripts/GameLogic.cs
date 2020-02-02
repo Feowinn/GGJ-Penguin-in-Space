@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
-    public SceneManager sceneManager;
+    //public SceneManager sceneManager;
+    public minigameLogic minigameLogic;
+    public PlayerController playerController;
+
 
     private int parts_collected = 0;
     private int parts_needed_for_repair = 5;
@@ -21,6 +24,7 @@ public class GameLogic : MonoBehaviour
             //spawn new scene in our scene
             //SceneManager.LoadScene("PuzzleGame", LoadSceneMode.Additive);
             parts_collected = 0;
+            minigameLogic.StartMinigame(0);
         }
 
         if (puzzle_completed)
@@ -41,5 +45,15 @@ public class GameLogic : MonoBehaviour
     public void AddCollectible()
     {
         parts_collected += 1;
+    }
+
+    public void GameCompleted()
+    {
+        playerController.RepairAnyPart();
+    }
+
+    public void GameFailed()
+    {
+
     }
 }
