@@ -9,10 +9,15 @@ public class WorldScript : MonoBehaviour
     public float rotation_speed = 0.01f;
     public Vector3 start_rotation;
     public Vector3 default_rot = new Vector3(0f, 0f, 20f);
+    private Vector3 border_offset_rot = new Vector3(0f, 0f, -10f);
 
-    private int num_tiles = 1;
+    private int num_tiles = 2;
     public GameObject[] Tilelist = new GameObject[1];
     public List<GameObject> active_tiles = new List<GameObject>();
+
+    private int num_border_tiles = 2;
+    public GameObject[] BorderTilelist = new GameObject[1];
+    public List<GameObject> active_border_tiles = new List<GameObject>();
 
     private System.Random random = new System.Random();
 
@@ -26,6 +31,12 @@ public class WorldScript : MonoBehaviour
             active_tiles.Add(new_tile);
             new_tile.transform.position = position;
             new_tile.transform.Rotate(start_rotation+(float)i*default_rot);
+
+            //spawn enough tiles to 
+            GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(0, num_border_tiles - 1)]);
+            active_border_tiles.Add(new_border_tile);
+            new_border_tile.transform.position = position;
+            new_border_tile.transform.Rotate(border_offset_rot + start_rotation + (float)i * default_rot);
         }
     }
 
@@ -42,7 +53,6 @@ public class WorldScript : MonoBehaviour
         {
             GameObject old_tile = active_tiles[0];
             active_tiles.RemoveAt(0);
-            Vector3 new_start_rot = old_tile.transform.rotation.eulerAngles;
             Destroy(old_tile);
 
             GameObject new_tile = Instantiate(Tilelist[random.Next(0, num_tiles-1)]);
@@ -50,6 +60,16 @@ public class WorldScript : MonoBehaviour
             new_tile.transform.position = position;
             new_tile.transform.eulerAngles = old_tile.transform.eulerAngles;
             new_tile.transform.Rotate( 5 * default_rot);
+
+            GameObject old_border_tile = active_border_tiles[0];
+            active_border_tiles.RemoveAt(0);
+            Destroy(old_border_tile);
+
+            GameObject new_border_tile = Instantiate(BorderTilelist[random.Next(0, num_border_tiles - 1)]);
+            active_border_tiles.Add(new_border_tile);
+            new_border_tile.transform.position = position;
+            new_border_tile.transform.eulerAngles = old_border_tile.transform.eulerAngles;
+            new_border_tile.transform.Rotate(5 * default_rot);
         }
 
         rotateAllTiles();
@@ -59,6 +79,10 @@ public class WorldScript : MonoBehaviour
     {
         float rot = rotation_speed * Time.deltaTime;
         foreach(GameObject g in active_tiles)
+        {
+            g.transform.Rotate(0f, 0f, -rot);
+        }
+        foreach (GameObject g in active_border_tiles)
         {
             g.transform.Rotate(0f, 0f, -rot);
         }
