@@ -72,19 +72,12 @@ public class PlayerController : MonoBehaviour
             if (!part.Equals(this.gameObject))
             {
                 broken[part.GetComponent<ShipPart>().partNumber] = true;
-                // shattering logic - TODO frage dein Designer -> pivot point
-                GameObject g = Instantiate(brokenObj[part.GetComponent<ShipPart>().partNumber],
-                                      part.transform.position + new Vector3(0.0f,0.5f,0.0f),
-                                      transform.rotation);
-                //g.transform.SetParent(gameObject.transform);
-                g.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-                //g.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f,0.0f,-5.0f));
-                Destroy(g, 5.0f);
+                collideEffect(part.GetComponent<ShipPart>().partNumber);
                 part.SetActive(false);
 
             }
 
-            // do something when all parts are broken
+            // do something when all parts are broken or main part was hit
             if (part.Equals(this.gameObject))
             {
                 for(int i = 4; i >=0; i--)
@@ -93,6 +86,7 @@ public class PlayerController : MonoBehaviour
                     {
                         broken[i] = true;
                         shipParts[i].gameObject.SetActive(false);
+                        collideEffect(i);
                         break;
                     }
                     if (i == 0)
@@ -138,5 +132,23 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void collideEffect(int id)
+    {
+        // shattering logic - TODO frage dein Designer -> pivot point
+        GameObject g = Instantiate(brokenObj[id],
+                                   transform.position, //+ new Vector3(0.0f,0.5f,0.0f),
+                                   transform.rotation);
+        g.transform.localScale = 0.015f * g.transform.localScale;
+        foreach (Transform t in g.transform)
+        {
+            //t.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, -5.0f));
+            t.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, -15.0f);
+        }
+        //g.transform.SetParent(gameObject.transform);
+        //g.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        //g.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f,0.0f,-5.0f));
+        Destroy(g, 5.0f);
     }
 }
