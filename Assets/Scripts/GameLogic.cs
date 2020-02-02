@@ -8,12 +8,18 @@ public class GameLogic : MonoBehaviour
     //public SceneManager sceneManager;
     public minigameLogic minigameLogic;
     public PlayerController playerController;
+    public showScrap showScrap;
 
 
     private int parts_collected = 0;
     private int parts_needed_for_repair = 5;
     private bool puzzle_completed = false;
     private bool puzzle_failed = false;
+
+    private void Start()
+    {
+        showScrap.ShowScrapParts(parts_collected);
+    }
 
 
     // Update is called once per frame
@@ -24,6 +30,7 @@ public class GameLogic : MonoBehaviour
             //spawn new scene in our scene
             //SceneManager.LoadScene("PuzzleGame", LoadSceneMode.Additive);
             parts_collected = 0;
+            showScrap.ShowScrapParts(parts_collected);
             minigameLogic.StartMinigame(0);
         }
 
@@ -45,6 +52,7 @@ public class GameLogic : MonoBehaviour
     public void AddCollectible()
     {
         parts_collected += 1;
+        showScrap.ShowScrapParts(parts_collected);
     }
 
     public void GameCompleted()
