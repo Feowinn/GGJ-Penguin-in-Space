@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44433287, g: 0.4937933, b: 0.5731492, a: 1}
+  m_IndirectSpecularColor: {r: 0.44433317, g: 0.4937935, b: 0.5731492, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -693,8 +693,46 @@ PrefabInstance:
         type: 3}
       propertyPath: BorderTilelist.Array.data[0]
       value: 
-      objectReference: {fileID: 8314103083718079129, guid: bf7fd1929858539458782058d262225d,
+      objectReference: {fileID: -927199367670048503, guid: fecfa0aa1fe34a04e96af2cb8d45a43f,
         type: 3}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: BorderTilelist.Array.data[1]
+      value: 
+      objectReference: {fileID: -927199367670048503, guid: 6415ff781fbebb641bafc32f2be1de75,
+        type: 3}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: Tilelist.Array.data[0]
+      value: 
+      objectReference: {fileID: -927199367670048503, guid: ecb9c0f34e9d91549b61df2428217b36,
+        type: 3}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: Tilelist.Array.data[1]
+      value: 
+      objectReference: {fileID: -927199367670048503, guid: 87726182ee0e7e142b14b68786a2b507,
+        type: 3}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: position.y
+      value: -68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: position.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878968382386693730, guid: e6365eafe1bec964f992b398a32d5ebe,
+        type: 3}
+      propertyPath: start_rotation.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 1878968382386693731, guid: e6365eafe1bec964f992b398a32d5ebe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2400,6 +2438,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbabccf4c1706ea4787cc6cbc3001358, type: 3}
+--- !u!1 &1695734101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1603148904}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1695734102}
+  m_Layer: 0
+  m_Name: penguin_action_01 (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1695734102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1603148904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695734101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 771430465}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850490836
 GameObject:
   m_ObjectHideFlags: 0
