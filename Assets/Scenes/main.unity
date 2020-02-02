@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &179983013
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameParts: 5
   puzzleTime: 20
-  slowdown: 3
+  slowdown: 5
   gameLogic: {fileID: 852427338}
   outline: {fileID: 179983012}
   parts:
@@ -2791,6 +2791,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1857895439840512150, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857895439844755757, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857895439937127414, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857895440316399638, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1857895440649963508, guid: f8d9f43c71d059146b817c2697e59518,
         type: 3}
       propertyPath: m_PlaneDistance
@@ -2806,6 +2826,16 @@ PrefabInstance:
       propertyPath: gameLogic
       value: 
       objectReference: {fileID: 852427338}
+    - target: {fileID: 1857895440850156147, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: slowdown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857895440919643044, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1857895440927284297, guid: f8d9f43c71d059146b817c2697e59518,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2870,6 +2900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1857895441025349187, guid: f8d9f43c71d059146b817c2697e59518,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1857895441067390748, guid: f8d9f43c71d059146b817c2697e59518,
         type: 3}
