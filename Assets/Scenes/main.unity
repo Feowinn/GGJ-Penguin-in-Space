@@ -1079,6 +1079,22 @@ PrefabInstance:
       propertyPath: logic
       value: 
       objectReference: {fileID: 852427337}
+    - target: {fileID: 6889244317920122512, guid: 87285ea6c14f1a34b90e26cf8e48880b,
+        type: 3}
+      propertyPath: meteor_collision_audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 072272a5e01b5f748807da727414fb7a, type: 3}
+    - target: {fileID: 6889244317920122512, guid: 87285ea6c14f1a34b90e26cf8e48880b,
+        type: 3}
+      propertyPath: collectible_collision_audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a6b5f7ac0f8dcc4f8d904d76f978d73, type: 3}
+    - target: {fileID: 6889244317920122512, guid: 87285ea6c14f1a34b90e26cf8e48880b,
+        type: 3}
+      propertyPath: brokenObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 3294452822987398631, guid: 69f94fd4e8196b144ba76725680b8830,
+        type: 3}
     - target: {fileID: 7326610323911062067, guid: 87285ea6c14f1a34b90e26cf8e48880b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1107,6 +1123,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69e446f4046e70745a4bd4433416c70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &771430458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6889244317920122512, guid: 87285ea6c14f1a34b90e26cf8e48880b,
+    type: 3}
+  m_PrefabInstance: {fileID: 771430455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771430456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920db7af4f71ce043986b4aedf369827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &771430465 stripped
@@ -1390,7 +1418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameLogic: {fileID: 915409742}
-  playerController: {fileID: 0}
+  playerController: {fileID: 771430458}
   showScrap: {fileID: 292580441}
 --- !u!4 &852427339
 Transform:
