@@ -48,6 +48,10 @@ MonoBehaviour:
   start_rotation: {x: 0, y: 0, z: 0}
   default_rot: {x: 0, y: 0, z: 20}
   Tilelist:
-  - {fileID: 8314103083718079129, guid: bf7fd1929858539458782058d262225d, type: 3}
-  - {fileID: 543535491558974043, guid: 32ee01b27bcb90c4aa0545d3cd4b7204, type: 3}
+  - {fileID: -927199367670048503, guid: fecfa0aa1fe34a04e96af2cb8d45a43f, type: 3}
+  - {fileID: -927199367670048503, guid: 4781b6d6de1674f4d94fc5d1bee98936, type: 3}
   active_tiles: []
+  BorderTilelist:
+  - {fileID: -927199367670048503, guid: d49d8002128c4964fb3653822b37f9fc, type: 3}
+  - {fileID: -927199367670048503, guid: c655e903f9acaa64687a70baeda4ee8d, type: 3}
+  active_border_tiles: []
