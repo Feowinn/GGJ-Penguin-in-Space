@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
 
-    [SerializeField] private Image countdownCircleTimer;
-    [SerializeField] private TextMeshProUGUI countdownText;
+    public Image countdownCircleTimer;
+    public TextMeshProUGUI countdownText;
     //[SerializeField] private float startTime = 30.0f;
 
     public void UpdateTime(float currentTime, float startTime)
