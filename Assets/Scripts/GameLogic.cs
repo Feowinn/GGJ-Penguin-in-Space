@@ -11,6 +11,8 @@ public class GameLogic : MonoBehaviour
     public showScrap showScrap;
 
 
+    private float startTime = 0;
+
     private int parts_collected = 0;
     private int parts_needed_for_repair = 5;
     private bool puzzle_completed = false;
@@ -18,7 +20,13 @@ public class GameLogic : MonoBehaviour
 
     private void Start()
     {
+        startTime = Time.time;
         showScrap.ShowScrapParts(parts_collected);
+    }
+
+    private void OnDisable()
+    {
+        Highscore.score = Time.time - startTime;
     }
 
 
