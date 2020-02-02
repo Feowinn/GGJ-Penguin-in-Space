@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject left_boundary_point;
     public GameObject right_boundary_point;
     public float maxSpeed = 5f;
+    public LoadScene loadScene;
 
     public ShipPart[] shipParts = new ShipPart[5];
     //public ShipPart dome, leftFront, leftBack, rightFront, right
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
                     if (i == 0)
                     {
                         // TODO lose the game!
-                        Debug.Log("You lose!");
+                        loadScene.LoadGameOverScreen();
                     }
                 }
                 
