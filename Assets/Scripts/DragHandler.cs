@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
+public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public RectTransform outline;
     public float threshold = 10f;
     public Vector3 originalPosition;
     public minigameLogic minigameLogic;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        originalPosition = transform.localPosition;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         //transform.localPosition = (Vector3)Input.mousePosition;
@@ -34,6 +40,6 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     // Start is called before the first frame update
     void Start()
     {
-        originalPosition = transform.localPosition;
+        //originalPosition = transform.localPosition;
     }
 }
